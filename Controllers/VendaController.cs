@@ -39,5 +39,35 @@ namespace tech_test_payment_api.Controllers
 
             return Ok(venda);
          }
+
+         [HttpPut("{id}")]
+        public IActionResult Atualizar(int id, Venda venda)
+        {
+            var vendaBanco = _context.Vendas.Find(id);
+            if ( vendaBanco.Status == EnumStatusPedido.AguardandoPagamento)
+           
+               {
+                if(venda.Status == EnumStatusPedido.PagamentoAprovado )
+                     vendaBanco.Status = venda.Status;     
+                if(venda.Status == EnumStatusPedido.Cancelada)
+                     vendaBanco.Status = venda.Status;  
+               }
+             if ( vendaBanco.Status == EnumStatusPedido.PagamentoAprovado)           
+               {
+                if(venda.Status == EnumStatusPedido.EnviadoParaTransportadora )
+                     vendaBanco.Status = venda.Status;     
+                if(venda.Status == EnumStatusPedido.Cancelada)
+                     vendaBanco.Status = venda.Status;
+               }
+             if ( vendaBanco.Status == EnumStatusPedido.EnviadoParaTransportadora)         
+               {
+                if(venda.Status == EnumStatusPedido.Entregue )
+                     vendaBanco.Status = venda.Status;     
+               }
+
+         _context.Vendas.Update(vendaBanco); 
+         _context.SaveChanges();
+         return Ok(venda);
+        }
     }
 }
