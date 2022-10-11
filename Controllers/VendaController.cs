@@ -23,7 +23,9 @@ namespace tech_test_payment_api.Controllers
          [HttpPost]
          public IActionResult Create(Venda venda)
          {  
+            
             _context.Add(venda);
+       
             _context.SaveChanges();
             return Ok(venda);
          }
