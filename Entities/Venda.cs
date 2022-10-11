@@ -15,7 +15,7 @@ namespace tech_test_payment_api.Entities
         public int Telefone { get; set; }          
         public  string ItemVendido { get; set; }
         public DateTime Data { get; set; }
-        public EnumStatusPedido Status { get; set; }         
+        public EnumStatusPedido Status { get; set; }      
      
     }
 }
