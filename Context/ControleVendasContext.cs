@@ -14,6 +14,6 @@ namespace tech_test_payment_api.Context
 
         }
 
-        public DbSet<Vendas> Vendas {get; set;}
+        public DbSet<Venda> Vendas {get; set;}
     }
 }

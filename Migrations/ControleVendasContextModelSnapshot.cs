@@ -22,7 +22,7 @@ namespace tech_test_payment_api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("tech_test_payment_api.Entities.Vendas", b =>
+            modelBuilder.Entity("tech_test_payment_api.Entities.Venda", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,14 +41,14 @@ namespace tech_test_payment_api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdPedido")
+                    b.Property<int>("IdVendedor")
                         .HasColumnType("int");
 
-                    b.Property<string>("Item")
+                    b.Property<string>("ItemVendido")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("NomeVendedor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
